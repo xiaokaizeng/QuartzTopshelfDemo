@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimedTaskDemo", "TimedTaskDemo\TimedTaskDemo.csproj", "{78003FD5-935A-4C49-A3E9-3B87FB446C8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeanLibrary", "SeanLibrary\SeanLibrary.csproj", "{4DAEF809-3ADC-4F62-851B-ADE941352094}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{78003FD5-935A-4C49-A3E9-3B87FB446C8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78003FD5-935A-4C49-A3E9-3B87FB446C8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78003FD5-935A-4C49-A3E9-3B87FB446C8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78003FD5-935A-4C49-A3E9-3B87FB446C8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DAEF809-3ADC-4F62-851B-ADE941352094}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DAEF809-3ADC-4F62-851B-ADE941352094}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DAEF809-3ADC-4F62-851B-ADE941352094}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DAEF809-3ADC-4F62-851B-ADE941352094}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EC8C7E04-41DE-4949-94AE-4A1CB65D57B8}
+	EndGlobalSection
+EndGlobal

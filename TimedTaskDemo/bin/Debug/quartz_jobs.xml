@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file contains job definitions in schema version 2.0 format -->
+
+<job-scheduling-data xmlns="http://quartznet.sourceforge.net/JobSchedulingData" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0">
+  <processing-directives>
+    <overwrite-existing-data>true</overwrite-existing-data>
+  </processing-directives>
+  <schedule>
+    <!--该作业用于定时更新商品库存-->
+    <job>
+      <!--必填 作业名称，同一个 group 中作业名称不能相同-->
+      <name>MyJob</name>
+      <!--作业分组名称，表示该作业所属分组。-->
+      <group>test</group>
+      <!--必填 指定作业将调用的作业实现类，格式为：命名空间.类名,程序集名称-->
+      <job-type>TimedTaskDemo.MyJob,TimedTaskDemo</job-type>
+      <!--作业描述，用于描述该作业的具体功能。-->
+      <!--<description></description>-->
+      <!--表示该作业是否长久的，具体作用不详，默认为tru-->
+      <durable>true</durable>
+      <!--字面意思是恢复，具体作用不详，默认为false-->
+      <recover>false</recover>
+    </job>
+    <trigger>
+      <!--<simple>-->
+        <!--必填 触发器名称，同一个 group 中作业名称不能相同-->
+        <!--<name>MyTrigger</name>-->
+        <!--必填 要调度的作业名称，必须与 job 节点中的 name 相同-->
+        <!--<job-name>MyJob</job-name>-->
+        <!--触发器分组名称，表示该触发器所属分组-->
+        <!--<group>test</group>-->
+        <!--要调度的作业分组名称，必须与 job 节点中的 group 相同-->
+        <!--<job-group>test</job-group>-->
+        <!--开始作业的 utc 时间，北京时间需要+08:00，
+        例如：<start-time>2017-12-01T08:00:00+08:00</start-time>，
+        表示北京时间2017年12月1日上午8:00开始执行。
+        注意：服务启动或重启时都会检测此属性。
+        若没有设置此属性或者 start-time 的时间小于当前时间，
+        服务启动后会立即执行一次调度；若大于当前时间，
+        服务会等到当前时间等于 start-time 的时间才开始执行。
+        如果没有特殊要求，可以忽略该属性-->
+        <!--<start-time>2017-12-01T00:00:00+08:00</start-time>-->
+        <!--表示作业重复执行次数，-1表示无限制重复执行，3 表示作业重复执行三次-->
+        <!--<repeat-count>-1</repeat-count>-->
+        <!--必填 表示作业触发间隔时间，10000 表示十秒触发一次，单位：毫秒-->
+        <!--<repeat-interval>3000</repeat-interval>-->
+      <!--</simple>-->
+     
+      <cron>
+        <name>TestTrigger</name>
+        <group>test</group>
+        <job-name>MyJob</job-name>
+        <job-group>test</job-group>
+
+        <!--开始作业的 utc 时间，北京时间需要+08:00,
+        例如：<start-time>2017-12-01T08:00:00+08:00</start-time>，
+        表示北京时间2017年12月1日上午8:00开始执行。
+        注意：服务启动或重启时都会检测此属性。若没有设置此属性，
+        服务会根据 cron-expression 的规则执行作业调度；
+        若 start-time 的时间小于当前时间，服务启动后会忽略 cron-expression 的设置，
+        立即执行一次调度，之后再根据 cron-expression 执行作业调度；若大于当前时间，
+        服务会等到当前时间等于 start-time 的时间才开始执行，并根据 cron-expression 执行作业调度。
+        如果没有特殊要求，可以忽略该属性-->
+
+        <start-time>2017-12-01T00:00:00+08:00</start-time>
+
+        <!--必填 cron表达式，例如：<cron-expression>0 0/1 * * * ?</cron-expression>，
+        表示间隔1分钟触发一次。注意：该节点为必须，如果省略整个服务将不能正常运行！-->
+
+        <!--由7段构成：秒 分 时 日 月 星期 年（可选）-->
+        <!--"-" ：表示范围  MON-WED表示星期一到星期三-->
+        <!--"," ：表示列举 MON,WEB表示星期一和星期三-->
+        <!--"*" ：表是“每”，每月，每天，每周，每年等-->
+        <!--"/" :表示增量：0/15（处于分钟段里面） 每15分钟，在0分以后开始，3/20 每20分钟，从3分钟以后开始-->
+        <!--"?" :只能出现在日，星期段里面，表示不指定具体的值-->
+        <!--"L" :只能出现在日，星期段里面，是Last的缩写，一个月的最后一天，一个星期的最后一天（星期六）-->
+        <!--"W" :表示工作日，距离给定值最近的工作日-->
+        <!--"#" :表示一个月的第几个星期几，例如："6#3"表示每个月的第三个星期五（1=SUN...6=FRI,7=SAT）-->
+        <cron-expression>0/10 * * * * ?</cron-expression>
+
+      </cron>
+    </trigger>
+  </schedule>
+</job-scheduling-data>
